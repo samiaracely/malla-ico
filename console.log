@@ -1,0 +1,22 @@
+function guardarEstado(ramos) {
+  console.log("Guardando estado:", ramos);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(ramos));
+}
+
+function cargarEstado() {
+  const estado = localStorage.getItem(STORAGE_KEY);
+  console.log("Cargando estado:", estado);
+  return estado ? JSON.parse(estado) : [];
+}
+
+function actualizarEstado(idRamo) {
+  let ramosAprobados = cargarEstado();
+
+  if (ramosAprobados.includes(idRamo)) {
+    ramosAprobados = ramosAprobados.filter(id => id !== idRamo);
+  } else {
+    ramosAprobados.push(idRamo);
+  }
+
+  guardarEstado(ramosAprobados);
+}
