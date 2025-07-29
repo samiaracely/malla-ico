@@ -1,3 +1,5 @@
+// Malla en formato por columnas (tipo tabla)
+
 const malla = [
   [ // Semestre I
     { nombre: "Administración General", creditos: 5 },
