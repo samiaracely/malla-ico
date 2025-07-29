@@ -1,56 +1,52 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fff0f5;
-  color: #4b2c2c;
   margin: 0;
   padding: 2rem;
 }
 
 h1 {
   text-align: center;
+  color: #c2185b;
   margin-bottom: 2rem;
-  color: #c71585;
 }
 
-.semestre {
-  margin-bottom: 3rem;
+table.malla-tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 8px;
+  table-layout: fixed;
 }
 
-.semestre h2 {
-  margin-bottom: 0.5rem;
-  color: #d63384;
+table.malla-tabla th {
+  background-color: #f06292;
+  color: white;
+  padding: 0.7rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
 
-.ramos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.ramo {
-  background: #ffe6f0;
-  border: 2px solid #f8bbd0;
-  border-radius: 12px;
-  padding: 1rem;
-  width: 230px;
-  box-shadow: 0 3px 6px rgba(255, 192, 203, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.ramo:hover {
+table.malla-tabla td {
   background-color: #fce4ec;
-  transform: scale(1.02);
+  border: 2px solid #f8bbd0;
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: top;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #4a2b33;
+  cursor: pointer;
 }
 
-.ramo.aprobado {
-  background-color: #f3d1e2;
-  border-color: #d63384;
-  box-shadow: 0 0 10px #e91e63;
+table.malla-tabla td:hover {
+  background-color: #f8bbd0;
 }
 
-.ramo .info {
-  font-size: 0.85rem;
-  color: #5a3e4c;
-  margin-top: 0.3rem;
+table.malla-tabla td.aprobado {
+  background-color: #f48fb1 !important;
+  border-color: #d81b60;
+  color: white;
+  box-shadow: 0 0 0 2px #d81b60 inset;
 }
