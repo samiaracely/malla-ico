@@ -3,21 +3,26 @@ body {
   background-color: #fff0f5;
   margin: 0;
   padding: 2rem;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
-#malla-container {
+h1 {
+  text-align: center;
+  color: #c2185b;
+  margin-bottom: 2rem;
+}
+
+.tabla-wrapper {
   overflow-x: auto;
-  white-space: nowrap;
+  overflow-y: hidden;
+  padding-bottom: 1rem;
 }
 
 table.malla-tabla {
-  width: max-content;
   border-collapse: separate;
   border-spacing: 10px;
-  table-layout: auto;
-  margin: 0 auto;
+  table-layout: fixed;
+  white-space: nowrap;
 }
 
 table.malla-tabla th {
@@ -25,6 +30,34 @@ table.malla-tabla th {
   color: white;
   padding: 0.7rem;
   font-size: 1rem;
-  text-transform: uppercase
+  text-transform: uppercase;
+  border-radius: 5px;
+  min-width: 150px;
+}
 
+table.malla-tabla td {
+  background-color: #fce4ec;
+  border: 2px solid #f8bbd0;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: top;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #4a2b33;
+  cursor: pointer;
+  min-width: 150px;
+  min-height: 90px;
+}
+
+table.malla-tabla td:hover {
+  background-color: #f8bbd0;
+}
+
+table.malla-tabla td.aprobado {
+  background-color: #f48fb1 !important;
+  border-color: #d81b60;
+  color: white;
+  box-shadow: 0 0 0 2px #d81b60 inset;
+}
 
