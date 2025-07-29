@@ -1,4 +1,4 @@
-// Malla en formato por columnas (tipo tabla)
+const STORAGE_KEY = "ramosAprobados";
 
 const malla = [
   [ // Semestre I
@@ -84,8 +84,33 @@ const malla = [
   ]
 ];
 
+function guardarEstado(ramos) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(ramos));
+}
+
+function cargarEstado() {
+  const estado = localStorage.getItem(STORAGE_KEY);
+  return estado ? JSON.parse(estado) : [];
+}
+
+function actualizarEstado(idRamo) {
+  let ramosAprobados = cargarEstado();
+
+  if (ramosAprobados.includes(idRamo)) {
+    ramosAprobados = ramosAprobados.filter(id => id !== idRamo);
+  } else {
+    ramosAprobados.push(idRamo);
+  }
+
+  guardarEstado(ramosAprobados);
+}
+
 function generarTabla() {
   const container = document.getElementById("malla-container");
+  container.innerHTML = "";
+
+  const ramosAprobados = cargarEstado();
+
   const table = document.createElement("table");
   table.classList.add("malla-tabla");
 
@@ -100,13 +125,24 @@ function generarTabla() {
 
   for (let i = 0; i < maxFilas; i++) {
     const fila = document.createElement("tr");
-    malla.forEach(columna => {
+    malla.forEach((columna, semestreIndex) => {
       const celda = document.createElement("td");
       const ramo = columna[i];
       if (ramo) {
-        celda.innerHTML = `<strong>${ramo.nombre}</strong><br><small>${ramo.creditos} SCT</small>`;
+        const idRamo = `sem${semestreIndex + 1}_ramo${i + 1}`;
+
+        celda.id = idRamo;
         celda.classList.add("ramo");
-        celda.onclick = () => celda.classList.toggle("aprobado");
+        celda.innerHTML = `<strong>${ramo.nombre}</strong><br><small>${ramo.creditos} SCT</small>`;
+
+        if (ramosAprobados.includes(idRamo)) {
+          celda.classList.add("aprobado");
+        }
+
+        celda.onclick = () => {
+          celda.classList.toggle("aprobado");
+          actualizarEstado(celda.id);
+        };
       }
       fila.appendChild(celda);
     });
