@@ -50,5 +50,27 @@ table.malla-tabla td.aprobado {
   border-color: #d81b60;
   color: white;
   box-shadow: 0 0 0 2px #d81b60 inset;
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff0f5;
+  margin: 0;
+  padding: 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#malla-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+table.malla-tabla {
+  width: max-content;
+  border-collapse: separate;
+  border-spacing: 10px;
+  table-layout: auto;
+  margin: 0 auto;
+}
+
 }
 
