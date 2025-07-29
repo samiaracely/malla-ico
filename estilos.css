@@ -51,3 +51,16 @@ table.malla-tabla td.aprobado {
   color: white;
   box-shadow: 0 0 0 2px #d81b60 inset;
 }
+.ramo {
+  cursor: pointer;
+  padding: 6px;
+  border: 1px solid #ccc;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.ramo.aprobado {
+  background-color: #aaf0aaf0;
+  text-decoration: line-through;
+}
+
